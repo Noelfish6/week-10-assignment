@@ -1,0 +1,14 @@
+.scrolllist{
+    position: relative;
+    height: 400px;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+.axis .tick line, path{
+    stroke:#999;
+}
+
+.axis .tick line, path{
+    stroke-width:.3px;
+}
