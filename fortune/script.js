@@ -38,7 +38,7 @@ var axisY = d3.axisLeft()
 var Byname;
 
 
-d3.csv('../data/fortunedata_01052017.csv',parse,dataloaded);
+d3.csv('../data/fortunedata_01122017.csv',parse,dataloaded);
 
 function dataloaded(err, fortune){
 	// console.table(fortune);
