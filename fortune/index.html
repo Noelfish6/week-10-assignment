@@ -2,36 +2,63 @@
 <html>
 <head>
     <title></title>
-    <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"> 
+    <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"/> 
     <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../global.css" rel="stylesheet"/>
     <link href="./style.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container-fluid">
-    <h1>hello</h1>
-    <div class="col-lg-9">
-        <section class="canvas" id="canvas">
-        </section>
-     </div>
-    <div class="col-lg-3">
-        <ul class="nav nav-tabs" id="locationlist" role="tablist">
-            <li role="presentation"  id="China" class="active"><a href="#">China</a></li>
-            <li role="presentation" id="Hongkong" ><a href="#" >Hongkong</a></li>
-            <li role="presentation"  id="Taiwan" ><a href="#">Taiwan</a></li>
-        </ul>
-        <div class="scrolllist list-group" id="list"></div>
+<div class="col-lg-8 col-lg-offset-4 col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 col-xs-12" id="diagram">
+    <div class="canvas" id="canvas">
     </div>
     <div class="custom-tooltip">
         <p class="title"></p>
         <p class="value"></p>
     </div>
 </div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="word">
+    <section class="slide" id="slide0">
+        <h4>基本介绍</h4>
+        <p>descripiton text here</p> 
+    </section>
+    <section class="slide" id="slide1">
+        <h4>两岸三地企业排行分布</h4>
+        <p>descripiton text here</p> 
+    </section>
+    <section class="slide" id="slide2">
+        <h4>企业发展趋势</h4>
+        <p>descripiton text here</p> 
+    </section>
+    <section class="slide" id="slide3">
+        <h4>大陆企业趋势</h4>
+        <p>descripiton text here</p> 
+    </section>
+    <section class="slide" id="slide4">
+        <h4>香港企业趋势</h4>
+        <p>descripiton text here</p> 
+    </section>
+    <section class="slide" id="slide5">
+        <h4>台湾企业趋势</h4>
+        <p>descripiton text here</p> 
+    </section>
+    <section class="slide" id="slide6">
+        <h4>财务状况</h4>
+        <p>descripiton text here</p> 
+    </section>
+    <section class="slide" id="slide7">
+        <h4>专题企业</h4>
+        <p>descripiton text here</p> 
+    </section>
+</div>
+</div>
+
 
 <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 <script src='../bootstrap-3.3.7-dist/js/bootstrap.min.js'></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
 <script src="../d3.js"></script>
-<script src="script.js"></script>
+<script src="main.js"></script>
 
 </body>
 </html>

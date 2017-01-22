@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1"> 
+    <link href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../global.css" rel="stylesheet"/>
+    <link href="./style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid">
+    <h1>hello</h1>
+    <div class="col-lg-9">
+        <section class="canvas" id="canvas">
+        </section>
+     </div>
+    <div class="col-lg-3">
+        <ul class="nav nav-tabs" id="locationlist" role="tablist">
+            <li role="presentation"  id="China" class="active"><a href="#">China</a></li>
+            <li role="presentation" id="Hongkong" ><a href="#" >Hongkong</a></li>
+            <li role="presentation"  id="Taiwan" ><a href="#">Taiwan</a></li>
+        </ul>
+        <div class="scrolllist list-group" id="list"></div>
+    </div>
+    <div class="custom-tooltip">
+        <p class="title"></p>
+        <p class="value"></p>
+    </div>
+</div>
+
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src='../bootstrap-3.3.7-dist/js/bootstrap.min.js'></script>
+<script src="../d3.js"></script>
+<script src="explore.js"></script>
+
+</body>
+</html>

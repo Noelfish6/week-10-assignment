@@ -1,12 +1,22 @@
+html, body, .container-fluid{
+    height: 100%;
+}
+
 .canvas{
     width:100%;
-    min-height:600px;
+    height: 100%;
+}
+#diagram{
+    position: fixed;
+    height: 90%;
+    top:10%;
+}
+#word{
+    height: 100%;
+    top:0%;
 }
 
 /* tooltip */
-.container{
-    position:relative;
-}
 .custom-tooltip{
     position:absolute;
     width:180px;
