@@ -192,7 +192,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 1995,Tesco,198,-,Ian MacLaurin,71467,www.tescoplc.com,,,,,
 1995,Bridgestone,199,-,Yoichiro Kaizaki,89711,www.bridgestone.com,,,,,
 1995,American Express,200,-,Harvey Golub,72412,www.americanexpress.com,,,,,
-1995,,201,-,Jean-Rene Fourtou,81582,www.aventis.com,,,,,Taiwan
+1995,Aventis,201,-,Jean-Rene Fourtou,81582,www.aventis.com,,,,,Taiwan
 1995,Sara Lee Corporation,202,-,John H. Bryan,145900,www.hillshirebrands.com,,,,,
 1995,Japan Energy Corporation,203,-,Yukio Kasahara,16826,www.j-energy.co.jp,,,,,
 1995,Isuzu Motors Limited,204,-,Kazuhira Seki,14896,www.isuzu.co.jp,,,,,
@@ -290,7 +290,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 1995,Den norske stats oljeselskap a.s,298,-,Harald Norvik,12630,www.statoil.com,,,,,
 1995,Takashimaya Co. Ltd.,299,-,Hiroshi Hidaka,13945,www.takashimaya.co.jp,,,,,
 1995,Migros Group,300,-,Eugen Hunziker,74827,www.migros.ch,,,,,
-1995,,301,-,-,103938,www.telefonica.com,,,,,Taiwan
+1995,Telefonica,301,-,-,103938,www.telefonica.com,,,,,
 1995,The Sumitomo Bank Ltd.,302,-,Atsushi Niira,7070,www.sumitomotrust.co.jp,,,,,
 1995,Broken Hill Proprietary,303,-,J.B. Prescott,48000,www.bhpbilliton.com,,,,,
 1995,Showa Shell Sekiyu,304,-,Haruyuki Niimi,3840,www.showa-shell.co.jp,,,,,
@@ -855,7 +855,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 1996,Gaz de France,447,458,Pierre Gadonneix,25331,www.gdfsuez.com,,,,,
 1996,Sumitomo Chemical Co. Ltd.,448,398,Akio Kosai,16769,www.sumitomo-chem.co.jp,,,,,
 1996,Maruha Corporation,449,395,Keijiro Nakabe,10193,-,,,,,
-1996,,451,-,Olavo Egydio Setubal,54022,www.itausa.com.br,,,,,Taiwan
+1996,,451,-,Olavo Egydio Setubal,54022,www.itausa.com.br,,,,,
 1996,GEC (General Electric Co. p.l.c.),452,429,Lord A. Weinstock,82967,www.marconi.com,,,,,
 1996,Toray Industries Inc.,453,431,Katsunosuke Maeda,32913,www.toray.co.jp,,,,,
 1996,Baxter International Inc.,454,412,Vernon R. Loucks Jr.,35500,www.baxter.com,,,,,
@@ -1637,7 +1637,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 1998,Groupe Pinault-Printemps,256,253,Serge Weinberg,63301,www.ppr.com,,,,,
 1998,Electronic Data Systems Corporation,257,-,Lester Alberthal Jr.,110000,www.eds.com,,,,,
 1998,General Accident plc,258,305,R.A. Scott,25581,-,,,,,
-1998,,259,157,Andr_ L_vy-Lang,20000,www.paribas.com,,,,,Taiwan
+1998,,259,157,Andr_ L_vy-Lang,20000,www.paribas.com,,,,,
 1998,Groupe Danone,260,236,Franck Riboud,80631,www.danone.com,,,,,
 1998,3M,261,288,Livio D. DeSimone,75639,www.3m.com,,,,,
 1998,MYCAL CORPORATION,262,241,Toshimine Kobayashi,38322,www.mycal.co.jp,,,,,
@@ -2139,7 +2139,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 1999,Texas Utilities Company,276,-,Erle  Nye,22055,www.energyfutureholdings.com,,,,,
 1999,Sanyo Electric Co. Ltd.,277,245,Satoshi Iue,77071,www.sanyo.co.jp,,,,,
 1999,Indian Oil,278,287,Shri M.A. Pathan,34100,www.iocl.com,,,,,
-1999,,279,252,Jean-Ren_ Fourtou,65180,www.aventis.com,,,,,Taiwan
+1999,Aventis,279,252,Jean-Ren Fourtou,65180,www.aventis.com,,,,,Taiwan
 1999,Pfizer,280,354,William C. Steere Jr.,46000,www.pfizer.com,,,,,
 1999,Northwestern Mutual,281,312,James D. Ericson,4117,www.northwesternmutual.com,,,,,
 1999,Time Warner,282,318,Gerald M. Levin,38100,www.timewarner.com,,,,,
@@ -2198,7 +2198,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 1999,IBP Inc.,339,320,Robert L. Peterson,40000,www.ibpinc.com,,,,,
 1999,Dana Corporation,340,-,Joseph Magliochetti,86400,www.dana.com,,,,,
 1999,Bertelsmann AG,341,295,Thomas Middlehoff,57807,www.bertelsmann.com,,,,,
-1999,,342,381,Lindsay Owen-Jones,49665,www.loreal.com,,,,,Taiwan
+1999,,342,381,Lindsay Owen-Jones,49665,www.loreal.com,,,,,
 1999,National Australia Bank,343,356,Donald R. Argus,46300,www.nabgroup.com,,,,,
 1999,Washington Mutual Inc.,344,-,Kerry K. Killinger,27330,www.wamu.com,,,,,
 1999,Rite Aid,345,-,Martin L. Grass,89900,www.riteaid.com,,,,,
@@ -2222,7 +2222,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 1999,Kingfisher plc,365,430,Geoffrey Mulcahy,75264,www.kingfisher.com,,,,,
 1999,Tyco International Ltd.,366,-,L. Dennis Kozlowski,87000,www.tyco.com,,,,,
 1999,Kimberly-Clark Corporation,367,351,Wayne R. Sanders,54700,www.kimberly-clark.com,,,,,
-1999,,368,388,-,49961,www.lagardere.com,,,,,Taiwan
+1999,,368,388,-,49961,www.lagardere.com,,,,,
 1999,Japan Airlines Corporation,369,335,Isao Kaneko,19455,www.jal.com,,,,,
 1999,Legal & General Group,371,-,David J. Prosser,7899,www.legalandgeneralgroup.com,,,,,
 1999,Henkel KGaA,372,390,Hans-Dietrich Winkhaus,56619,www.henkel.com,,,,,
@@ -2627,7 +2627,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2000,La Poste,281,254,Claude Bourmaud,306000,www.laposte.fr,,,,,
 2000,Diageo plc,282,189,John McGrath,66045,www.diageo.com,,,,,
 2000,Algemene Maatschappij Voor Nuver N.V.,283,-,Jan Huyghebaert,32050,www.kbc.com,,,,,
-2000,,284,291,Charles Milhaud,42000,www.groupe.caisse-epargne.com,,,,,Taiwan
+2000,,284,291,Charles Milhaud,42000,www.groupe.caisse-epargne.com,,,,,
 2000,Pfizer,285,280,William C. Steere Jr.,51000,www.pfizer.com,,,,,
 2000,Johnson Controls,286,351,James H. Keyes,95000,www.johnsoncontrols.com,,,,,
 2000,KarstadtQuelle AG,288,426,Walter Deuss,89920,www.arcandor.com,,,,,
@@ -2702,7 +2702,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2000,Isuzu Motors Limited,359,348,Kazuhira Seki,28802,www.isuzu.co.jp,,,,,
 2000,Hartford Financial Services Group,360,269,Ramani Ayer,26000,www.thehartford.com,,,,,
 2000,Canadian Imperial Bank of Commerce,361,313,John Hunkin,46000,www.cibc.com,,,,,
-2000,Aventis,362,279,-,101000,www.aventis.com,,,,,
+2000,Aventis,362,279,-,101000,www.aventis.com,,,,,Taiwan
 2000,Japan Energy Corporation,363,424,Akihiko Nomiyama,13294,www.j-energy.co.jp,,,,,
 2000,China Construction Bank,364,-,Xuebing Wang,324000,www.ccb.com,,,,,China
 2000,Dana Corporation,365,340,Joseph Magliochetti,84200,www.dana.com,,,,,
@@ -3059,7 +3059,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2001,China Telecommunications,228,236,Zhou Deqiang,588882,www.chinatelecom.com.cn,,,,,China
 2001,Loews Corporation,229,197,James S. Tisch,25700,www.loews.com,,,,,
 2001,Japan Tobacco Inc.,230,221,Katsuhiko Honda,40237,www.jt.com,,,,,
-2001,Aventis,231,362,-,92446,www.aventis.com,,,,,
+2001,Aventis,231,362,-,92446,www.aventis.com,,,,,Taiwan
 2001,KDDI,232,351,Tadashi Onodera,14242,www.kddi.com,,,,,
 2001,The Coca-Cola Company,233,215,Douglas N. Daft,36900,www.coca-colacompany.com,,,,,
 2001,PepsiCo,234,203,Roger A. Enrico,124000,www.pepsico.com,,,,,
@@ -3254,7 +3254,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2001,Consignia,430,411,John Roberts,217964,www.royalmailgroup.com,,,,,
 2001,Cable and Wireless PLC,431,315,Graham M. Wallace,47904,www.cw.com,,,,,
 2001,Household International Inc.,432,-,William F. Aldinger III,28000,www.household.com,,,,,
-2001,,433,377,-,43902,www.lagardere.com,,,,,Taiwan
+2001,,433,377,-,43902,www.lagardere.com,,,,,
 2001,Marks & Spencer Group plc,434,369,Luc Vandevelde,52213,www.marksandspencer.com,,,,,
 2001,Kawasaki Steel Corporation,435,439,Funio Sudo,30058,www.kawasaki-steel.co.jp,,,,,
 2001,Obayashi Corporation,436,477,Shinji Mukasa,12464,www.obayashi.co.jp,,,,,
@@ -3397,7 +3397,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2002,The Dai-ichi Life Insurance Company Limited,76,64,Tomijiro Morita,57731,www.dai-ichi-life.co.jp,,,,,
 2002,Toshiba,77,44,Tadashi Okamura,176398,www.toshiba.com,,,,,
 2002,Dynegy Inc.,78,139,Daniel L. Dienstbier,6139,www.dynegy.com,,,,,
-2002,,79,87,-,38317,www.munichre.com,,,,,Taiwan
+2002,,79,87,-,38317,www.munichre.com,,,,,
 2002,The Tokyo Electric Power Company Inc.,80,62,Nobuya Minami,53704,www.tepco.co.jp,,,,,
 2002,China National Petroleum,81,83,Ma Fucai,1167129,www.cnpc.com.cn,,,,,China
 2002,Mizuho Financial Group,82,48,Terunobu Maeda,34120,www.mizuho-fg.co.jp,,,,,
@@ -3546,7 +3546,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2002,Supervalu Inc.,227,195,Jeffrey Noddle,57800,www.supervalu.com,,,,,
 2002,Alstom,228,208,Pierre Bilger,118995,www.alstom.com,,,,,
 2002,Nippon Steel & Sumitomo Metal,229,181,Akira Chihaya,50900,www.nssmc.com,,,,,
-2002,Aventis,230,231,-,91729,www.aventis.com,,,,,
+2002,Aventis,230,231,-,91729,www.aventis.com,,,,,Taiwan
 2002,Caterpillar,232,240,Glen A. Barton,72004,www.caterpillar.com,,,,,
 2002,East Japan Railway,233,198,Mutsutake Otsuka,80200,www.jreast.co.jp,,,,,
 2002,Japan Postal Service,234,241,Seijiro Adachi,142923,www.japanpost.jp,,,,,
@@ -4043,7 +4043,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2003,OAO Gazprom,235,236,Alexei Miller,310700,www.gazprom.com,,,,,
 2003,Samsung Life Insurance,236,286,Jung Choong Bae,6220,www.samsunglife.com,,,,,
 2003,Industrial & Commercial Bank of China,237,243,Jiang Jianqing,405000,www.icbc.com.cn,,,,,China
-2003,Aventis,238,230,Igor Landau,78099,www.aventis.com,,,,,
+2003,Aventis,238,230,Igor Landau,78099,www.aventis.com,,,,,Taiwan
 2003,AutoNation Inc.,239,241,Michael J. Jackson,28500,www.autonation.com,,,,,
 2003,Mazda Motor,240,296,Lewis W. K. Booth,36184,www.mazda.com,,,,,
 2003,Les Caisses d'Epargne et de Pr_voyance,241,297,Charles Milhaud,44600,www.groupe.caisse-epargne.com,,,,,
@@ -4432,7 +4432,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2004,The Allstate Corporation,132,128,Edward M. Liddy,38878,www.allstate.com,,,,,
 2004,Deutsche Bahn,133,264,Hartmut Mehdorn,242759,www.deutschebahn.com,,,,,
 2004,Lockheed Martin,134,153,Vance D. Coffman,130000,www.lockheedmartin.com,,,,,
-2004,Wells Fargo,135,134,Richard M. Kovacevich,140000,www.wellsfargo.com,,,,,Taiwan
+2004,Wells Fargo,135,134,Richard M. Kovacevich,140000,www.wellsfargo.com,,,,,
 2004,BT Group,136,130,Bernardus J. Verwaayen,99900,www.bt.com,,,,,
 2004,Sumitomo Mitsui Financial Group,138,131,Yoshifumi Nishikawa,42014,www.smfg.co.jp,,,,,
 2004,Lowe's Companies Inc.,139,159,Robert L. Tillman,132500,www.lowes.com,,,,,
@@ -4541,7 +4541,7 @@ Year,Name,Rank,PreviousRank,CEO,Employees,Website,Revenues,Profits,Assets,Countr
 2004,WellPoint,245,272,Leonard D. Schaeffer,19100,www.wellpoint.com,,,,,
 2004,Georgia-Pacific Corporation,246,182,Alston D. Correll,61000,www.gp.com,,,,,
 2004,Supervalu Inc.,247,242,Jeffrey Noddle,55200,www.supervalu.com,,,,,
-2004,Aventis,248,238,Igor Landau,75567,www.aventis.com,,,,,
+2004,Aventis,248,238,Igor Landau,75567,www.aventis.com,,,,,Taiwan
 2004,Sharp,249,288,Katsuhiko Machida,46164,www.sharp.co.jp,,,,,
 2004,Bridgestone,250,256,Shigeo Watanabe,108741,www.bridgestone.com,,,,,
 2004,Weyerhaeuser Company,251,249,Steven R. Rogel,55162,www.weyerhaeuser.com,,,,,
