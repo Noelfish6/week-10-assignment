@@ -1,3 +1,10 @@
+html {
+  background-color: #3B4654;
+  background-size: cover;
+}
+
+h1,h2,h3,h4,p{color:#FDFDFC;}
+
 .scrolllist{
     position: relative;
     height: 400px;
@@ -6,14 +13,14 @@
 }
 
 .axis .tick line, path{
-    stroke:white;
+    stroke:#DCD9B9;
 }
 
 .axis .tick line, path{
     stroke-width:.3px;
 }
 .axis .tick text{
-	fill: #999;
+	fill: #DCD9B9;
 	font-size: .75em;
 }
 .axis-x .tick text{

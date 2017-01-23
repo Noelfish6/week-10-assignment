@@ -30,7 +30,7 @@ var plot = d3.select('.canvas')
 //set scales
 var scaleColor=d3.scaleOrdinal()
 	.domain(['China','Taiwan','Hongkong'])
-	.range(['#66c2a5','#fc8d62','#8da0cb']),
+	.range(['#A3FB66','#D65671','#2BA3E6']),
 	scaleX=d3.scaleLinear()
 	.domain([1995,2016])
 	.range([w/22,w]),
@@ -130,10 +130,10 @@ var rankbg=plot.append('g').attr('class','rank')
 rankbg.append('g').selectAll('.greydots')
     .data(alldots).enter()
     .append('circle').attr('class','greydots')
-    .attr('r','1px')
+    .attr('r','0.5px')
     .attr('cx',function(d){return scaleX(d.year)})
     .attr('cy',function(d){return scaleY(d.rank)})
-    .style('fill','#eee')
+    .style('fill','#DCD9B9')
     // .style('opacity',.3)
 rankbg.append('g').attr('class','axis axis-x')
     .attr('transform','translate(0,'+h+')')
