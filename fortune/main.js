@@ -17,7 +17,7 @@ for (var i=0;i<slides.length;i++){
 }
 
 //init canvas
-var m = {t:30,r:30,b:50,l:30},
+var m = {t:30,r:50,b:50,l:30},
     w = document.getElementById('canvas').clientWidth - m.l - m.r,
     h = document.getElementById('canvas').clientHeight - m.t - m.b;
 
@@ -65,57 +65,25 @@ Byname=d3.nest()
 
 // console.log(Byname)
 
-rank()
 
 //set scenes' actions
-slide[1].on('enter',function(e){dots(fortune)})
-        .on('leave',function(e){plot.selectAll('.dots').transition().duration(1000).style('opacity',0)})
-slide[2].on('enter',function(e){lines(Byname)})
-        .on('leave',function(e){plot.selectAll('.dots').transition().duration(1000).style('opacity',.3);plot.selectAll('.country').remove()})
-slide[3].on('enter',function(e){resetline('.China');})
-        .on('leave',function(e){resetline('.country');})
+slide[1].on('enter',function(e){rank();dots(fortune)})
+        .on('leave',function(e){plot.select('.rank').remove()})
+slide[2].on('enter',function(e){new2016()})
+        .on('leave',function(e){plot.selectAll('.dots').transition().style('opacity',.5)})
+slide[3].on('enter',function(e){plot.selectAll('.dots').transition().style('opacity',.5);lines(Byname);resetline('.China');})
+        .on('leave',function(e){plot.select('.line').remove()})
 slide[4].on('enter',function(e){resetline('.Hongkong');})
         .on('leave',function(e){resetline('.China');})
 slide[5].on('enter',function(e){resetline('.Taiwan');})
         .on('leave',function(e){resetline('.Hongkong');})
-slide[6].on('enter',function(e){plot.select('.rank').transition().style('opacity',0);var data2015=fortune.filter(data=>data.year==2015);profit(data2015)})
-        .on('leave',function(e){plot.select('.profit').remove();plot.select('.rank').transition().style('opacity',1);resetline('.Taiwan')})
-slide[7].on('enter',function(e){plot.select('.profit').transition().style('opacity',0)})
-        .on('leave',function(e){plot.select('.profit').transition().style('opacity',1)})
+slide[6].on('enter',function(e){resetline('.country')})
+        .on('leave',function(e){resetline('.Taiwan')})
+slide[7].on('enter',function(e){})
+        .on('leave',function(e){resetline('.country');})
 }
 
-function profit(data){
-scaleProfit.domain(d3.extent(data,function(d){return d.profit}))
-scaleAsset.domain(d3.extent(data,function(d){return d.assets}))
-scaleEmployee.domain(d3.extent(data,function(d){return d.employee}))
-var test=d3.extent(data,function(d){return d.assets})
-console.log(test)
-axisX.scale(scaleAsset).tickSize(-h).ticks(5);
-axisY.scale(scaleProfit).tickSize(-w).ticks(5);
-var profitbg=plot.append('g').attr('class','profit')
-profitbg.append('g').attr('class','axis axis-x')
-    .attr('transform','translate(0,'+h+')')
-    .call(axisX);
-profitbg.append('g').attr('class','axis axis-y')
-    .call(axisY);
-profitbg.append('g').attr('class','profitnodes')
 
-var updatepf=plot.select('.profitnodes')
-    .selectAll('.nodes').data(data,function(d){return d.name})
-var enterpf=updatepf.enter()
-    .append('circle').attr('class','nodes')
-    .attr('r',0)
-    .attr('cx',function(d){return scaleAsset(d.assets)})
-    .attr('cy',function(d){return scaleProfit(d.profit)})
-    .style('fill',function(d){return scaleColor(d.location)})
-    .style('opacity',0)
-updatepf.merge(enterpf)
-    .transition().duration(1000)
-    .attr('r',function(d){return scaleEmployee(d.employee)})
-    .style('opacity',.5)
-updatepf.exit().remove()
-
-}
 //dots and line diagram's background
 function rank(){
 const alldots=[];
@@ -124,8 +92,8 @@ for(var i=1;i<=500;i++){
         alldots.push({rank:i,year:m,});
     };
 }
-axisX.scale(scaleX).tickSize(-h);
-axisY.scale(scaleY).tickSize(-w).ticks(5);
+axisX.scale(scaleX).tickSize(0);
+axisY.scale(scaleY).tickSize(0).ticks(5);
 var rankbg=plot.append('g').attr('class','rank')
 rankbg.append('g').selectAll('.greydots')
     .data(alldots).enter()
@@ -146,7 +114,7 @@ rankbg.append('g').attr('class','line')
 //to select specific country's lines
 function resetline(country){
     plot.selectAll('.country').transition().duration(1000).style('opacity',0);
-    plot.selectAll(country).transition().duration(1000).style('opacity',1)   
+    plot.selectAll(country).transition().duration(1000).style('opacity',.5)   
 }
 //to draw line
 function lines(data){
@@ -156,15 +124,12 @@ var enterline=updateline.enter()
         .append('path').attr('class',function(d){return d.values[0].location+' country'})
         .datum(function(d){return d.values})
         .attr('d',function(d){return lineGenerator(d);})
-        .style('stroke-width',0)
-        .style('stroke','none')
+        
+updateline.merge(enterline)
+        .style('stroke',function(d){return d[0].rank-d[d.length-1].rank>=0?scaleColor(d[0].location):'#999'})
         .style('fill','none')
         .style('opacity',.5)
-console.log(data)
-updateline.merge(enterline)
-        .transition().duration(1000)
-        .style('stroke',function(d){return d[0].rank-d[d.length-1].rank>=0?scaleColor(d[0].location):'#999'})
-        .style('stroke-width',function(d){return d[0].location?'1px':'.5px'})
+        .style('stroke-width',2)
         
 updateline.exit().remove(); 
 }
@@ -172,8 +137,9 @@ updateline.exit().remove();
 function dots(data){
 var updatedots=plot.select('.circle').selectAll('.dots')
     .data(data);
+console.table(data)
 var enterdots=updatedots.enter()
-    .append('circle').attr('class','dots')
+    .append('circle').attr('class',function(d){return d.year==2016&&d.prerank==undefined?'dots dot2016':'dots'})
     .attr('cx',function(d){return scaleX(d.year)})
     .attr('cy',function(d){return scaleY(d.rank)})
     .style('stroke',function(d){return scaleColor(d.location)})
@@ -191,6 +157,12 @@ updatedots.merge(enterdots)
 updatedots.exit().remove(); 
 }
 
+//only 2016 new
+function new2016(){
+plot.selectAll('.dots').transition().duration(1000).style('opacity',0.1);
+plot.selectAll('.dot2016').transition().duration(1000).style('opacity',1)
+}
+
 function parse(d){
 if(d['Location']==""||d['Location']==undefined)return;
 if(d['Year']=='2008')return;
@@ -198,10 +170,8 @@ if(d['Year']=='2008')return;
     return {
     	year:+d['Year'],
         rank:+d['Rank'],
+        prerank:+d['PreviousRank']?+d['PreviousRank']:undefined,
         name:d['Name'],
-        location:d['Location'],
-        profit:+d['Profits'],
-        assets:+d['Assets'],
-        employee:+d['Employees']      
+        location:d['Location'],    
     }
 }
