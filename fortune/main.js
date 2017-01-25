@@ -17,7 +17,7 @@ for (var i=0;i<slides.length;i++){
 }
 
 //init canvas
-var m = {t:30,r:30,b:50,l:30},
+var m = {t:30,r:50,b:50,l:30},
     w = document.getElementById('canvas').clientWidth - m.l - m.r,
     h = document.getElementById('canvas').clientHeight - m.t - m.b;
 
@@ -51,7 +51,7 @@ var lineGenerator = d3.line()
     .curve(d3.curveCardinal.tension(0.5));
 var axisX = d3.axisBottom().tickPadding(10),
     axisY = d3.axisLeft()
-var Byname,fortune;
+var Byname,fortune,X,Y,updatedots,enterdots;
 
 
 d3.csv('../data/fortunedata_01222017.csv',parse,dataloaded);
@@ -65,57 +65,27 @@ Byname=d3.nest()
 
 // console.log(Byname)
 
-rank()
 
 //set scenes' actions
-slide[1].on('enter',function(e){dots(fortune)})
-        .on('leave',function(e){plot.selectAll('.dots').transition().duration(1000).style('opacity',0)})
-slide[2].on('enter',function(e){lines(Byname)})
-        .on('leave',function(e){plot.selectAll('.dots').transition().duration(1000).style('opacity',.3);plot.selectAll('.country').remove()})
-slide[3].on('enter',function(e){resetline('.China');})
-        .on('leave',function(e){resetline('.country');})
+slide[1].on('enter',function(e){rank();dots(fortune)})
+        .on('leave',function(e){plot.select('.rank').remove()})
+slide[2].on('enter',function(e){new2016()})
+        .on('leave',function(e){plot.selectAll('.dots').transition().style('opacity',.5)})
+slide[3].on('enter',function(e){plot.selectAll('.dots').transition().style('opacity',.5);lines(Byname);resetline('.China');})
+        .on('leave',function(e){plot.select('.line').remove()})
 slide[4].on('enter',function(e){resetline('.Hongkong');})
         .on('leave',function(e){resetline('.China');})
 slide[5].on('enter',function(e){resetline('.Taiwan');})
         .on('leave',function(e){resetline('.Hongkong');})
-slide[6].on('enter',function(e){plot.select('.rank').transition().style('opacity',0);var data2015=fortune.filter(data=>data.year==2015);profit(data2015)})
-        .on('leave',function(e){plot.select('.profit').remove();plot.select('.rank').transition().style('opacity',1);resetline('.Taiwan')})
-slide[7].on('enter',function(e){plot.select('.profit').transition().style('opacity',0)})
-        .on('leave',function(e){plot.select('.profit').transition().style('opacity',1)})
+slide[6].on('enter',function(e){resetline('.country')})
+        .on('leave',function(e){resetline('.Taiwan')})
+slide[7].on('enter',function(e){profit(fortune)})
+        .on('leave',function(e){resetprofit();resetline('.country');})
+slide[8].on('enter',function(e){})
+        .on('leave',function(e){})
 }
 
-function profit(data){
-scaleProfit.domain(d3.extent(data,function(d){return d.profit}))
-scaleAsset.domain(d3.extent(data,function(d){return d.assets}))
-scaleEmployee.domain(d3.extent(data,function(d){return d.employee}))
-var test=d3.extent(data,function(d){return d.assets})
-console.log(test)
-axisX.scale(scaleAsset).tickSize(-h).ticks(5);
-axisY.scale(scaleProfit).tickSize(-w).ticks(5);
-var profitbg=plot.append('g').attr('class','profit')
-profitbg.append('g').attr('class','axis axis-x')
-    .attr('transform','translate(0,'+h+')')
-    .call(axisX);
-profitbg.append('g').attr('class','axis axis-y')
-    .call(axisY);
-profitbg.append('g').attr('class','profitnodes')
 
-var updatepf=plot.select('.profitnodes')
-    .selectAll('.nodes').data(data,function(d){return d.name})
-var enterpf=updatepf.enter()
-    .append('circle').attr('class','nodes')
-    .attr('r',0)
-    .attr('cx',function(d){return scaleAsset(d.assets)})
-    .attr('cy',function(d){return scaleProfit(d.profit)})
-    .style('fill',function(d){return scaleColor(d.location)})
-    .style('opacity',0)
-updatepf.merge(enterpf)
-    .transition().duration(1000)
-    .attr('r',function(d){return scaleEmployee(d.employee)})
-    .style('opacity',.5)
-updatepf.exit().remove()
-
-}
 //dots and line diagram's background
 function rank(){
 const alldots=[];
@@ -124,8 +94,7 @@ for(var i=1;i<=500;i++){
         alldots.push({rank:i,year:m,});
     };
 }
-axisX.scale(scaleX).tickSize(-h);
-axisY.scale(scaleY).tickSize(-w).ticks(5);
+
 var rankbg=plot.append('g').attr('class','rank')
 rankbg.append('g').selectAll('.greydots')
     .data(alldots).enter()
@@ -135,47 +104,51 @@ rankbg.append('g').selectAll('.greydots')
     .attr('cy',function(d){return scaleY(d.rank)})
     .style('fill','#DCD9B9')
     // .style('opacity',.3)
-rankbg.append('g').attr('class','axis axis-x')
-    .attr('transform','translate(0,'+h+')')
-    .call(axisX);
-rankbg.append('g').attr('class','axis axis-y')
-    .call(axisY);
+X=rankbg.append('g').attr('class','axis axis-x')
+    .attr('transform','translate(0,'+h+')'),
+Y=rankbg.append('g').attr('class','axis axis-y');
 rankbg.append('g').attr('class','circle')
 rankbg.append('g').attr('class','line')
 }
 //to select specific country's lines
 function resetline(country){
     plot.selectAll('.country').transition().duration(1000).style('opacity',0);
-    plot.selectAll(country).transition().duration(1000).style('opacity',1)   
+    plot.selectAll(country).transition().duration(1000).style('opacity',.5)   
 }
 //to draw line
 function lines(data){
 var updateline=plot.select('.line').selectAll('.country')
     .data(data,function(d){return d.key});
+axisX.scale(scaleX).tickSize(0);
+axisY.scale(scaleY).tickSize(0).ticks(5);
+X.call(axisX);
+Y.call(axisY);
 var enterline=updateline.enter()
         .append('path').attr('class',function(d){return d.values[0].location+' country'})
         .datum(function(d){return d.values})
         .attr('d',function(d){return lineGenerator(d);})
-        .style('stroke-width',0)
-        .style('stroke','none')
+        
+updateline.merge(enterline)
+        .style('stroke',function(d){return d[0].rank-d[d.length-1].rank>=0?scaleColor(d[0].location):'#999'})
         .style('fill','none')
         .style('opacity',.5)
-console.log(data)
-updateline.merge(enterline)
-        .transition().duration(1000)
-        .style('stroke',function(d){return d[0].rank-d[d.length-1].rank>=0?scaleColor(d[0].location):'#999'})
-        .style('stroke-width',function(d){return d[0].location?'1px':'.5px'})
+        .style('stroke-width',2)
         
 updateline.exit().remove(); 
 }
 //to draw dots
 function dots(data){
-var updatedots=plot.select('.circle').selectAll('.dots')
+
+axisX.scale(scaleX).tickSize(0);
+axisY.scale(scaleY).tickSize(0).ticks(5);
+X.call(axisX);
+Y.call(axisY);
+updatedots=plot.select('.circle').selectAll('.dots')
     .data(data);
-var enterdots=updatedots.enter()
-    .append('circle').attr('class','dots')
-    .attr('cx',function(d){return scaleX(d.year)})
-    .attr('cy',function(d){return scaleY(d.rank)})
+enterdots=updatedots.enter()
+    .append('circle').attr('class',function(d){return d.year==2016&&d.prerank==undefined?'dots new2016 y'+d.year:'dots y'+d.year})
+    .attr('cx',0)
+    .attr('cy',0)
     .style('stroke',function(d){return scaleColor(d.location)})
     .style('stroke-width','2px')
     .style('fill','none')
@@ -185,23 +158,78 @@ var enterdots=updatedots.enter()
     
 updatedots.merge(enterdots)
     .transition().duration(1000)
+    .attr('cx',function(d){return scaleX(d.year)})
+    .attr('cy',function(d){return scaleY(d.rank)})
     .style('opacity',.5)
     .attr('r','4px')
 
 updatedots.exit().remove(); 
 }
 
+//only 2016 new
+function new2016(){
+plot.selectAll('.dots').transition().duration(1000).style('opacity',0.1);
+plot.selectAll('.new2016').transition().duration(1000).style('opacity',1)
+}
+
+//draw profit
+function profit(data){
+const data2015=data.filter(d=>{return d.year==2015;})
+plot.selectAll('.dots').style('opacity',0);
+plot.selectAll('.greydots').style('opacity',0);
+plot.selectAll('.tick').style('opacity',0);
+plot.selectAll('.country').style('opacity',0);
+scaleProfit.domain(d3.extent(data2015,function(d){return d.profit}))
+scaleAsset.domain(d3.extent(data2015,function(d){return d.assets}))
+scaleEmployee.domain(d3.extent(data2015,function(d){return d.employee}))
+
+axisX.scale(scaleAsset).ticks(5);
+axisY.scale(scaleProfit).ticks(5);
+
+X.call(axisX);
+Y.call(axisY); 
+var test=d3.extent(data2015,function(d){return d.employee})
+console.log(scaleEmployee(test[1]))
+
+var updateprofit=plot.selectAll('.y2015').style('opacity',1).data(data2015)
+    
+    .transition().duration(2000)
+    .attr('cx',function(d){return scaleAsset(d.assets)})
+    .attr('cy',function(d){return scaleProfit(d.profit)})
+    .attr('r',function(d){return scaleEmployee(d.employee)+'px'});
+ 
+ }
+function resetprofit(){
+axisX.scale(scaleX).tickSize(0);
+axisY.scale(scaleY).tickSize(0).ticks(5);
+X.call(axisX);
+Y.call(axisY);
+plot.selectAll('.greydots').style('opacity',1);
+plot.selectAll('.tick').style('opacity',1);
+plot.selectAll('.country').style('opacity',.5);
+console.log(updatedots)
+console.log(enterdots)
+updatedots.merge(enterdots)
+    .transition()
+    .attr('cx',function(d){return scaleX(d.year)})
+    .attr('cy',function(d){return scaleY(d.rank)})
+    .style('opacity',.5)
+    .attr('r','4px')
+
+}
+
 function parse(d){
 if(d['Location']==""||d['Location']==undefined)return;
-if(d['Year']=='2008')return;
+if(d['Year']==2008)return;
 
     return {
     	year:+d['Year'],
         rank:+d['Rank'],
+        prerank:+d['PreviousRank']?+d['PreviousRank']:undefined,
         name:d['Name'],
         location:d['Location'],
         profit:+d['Profits'],
         assets:+d['Assets'],
-        employee:+d['Employees']      
+        employee:+d['Employees'],
     }
 }

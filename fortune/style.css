@@ -1,9 +1,9 @@
-html {
-  background-color: #3B4654;
-  background-size: cover;
+
+body{
+	background-color: #3B4654;
+	color:#FDFDFC;
 }
 
-h1,h2,h3,h4,p{color:#FDFDFC;}
 
 .scrolllist{
     position: relative;
@@ -12,13 +12,15 @@ h1,h2,h3,h4,p{color:#FDFDFC;}
     overflow: auto;
 }
 
-.axis .tick line, path{
+
+.axis .tick path, .axis path{
     stroke:#DCD9B9;
 }
 
-.axis .tick line, path{
+.axis .tick line, .axis path{
     stroke-width:.3px;
 }
+
 .axis .tick text{
 	fill: #DCD9B9;
 	font-size: .75em;
@@ -29,13 +31,11 @@ h1,h2,h3,h4,p{color:#FDFDFC;}
 }
 .slide{
     height: 100%;
-    /*background-color: #f0f0f0;*/
     padding: 20px;
-    /*padding-top: 80px;*/
     margin-bottom: 100%;
 }
 
-path {
+.line path {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   -webkit-animation: dash 5s linear infinite;
@@ -53,12 +53,5 @@ path {
 }
 @media (min-width: 768px),@media (min-width: 992px) ,@media (min-width: 1200px)  {
 h4{font-size: 2em;}
-#diagram {
-    height: 100%;
-    top:0%;
-  }
 
-.slide{
-	padding-top: 80px;
-}
 }
