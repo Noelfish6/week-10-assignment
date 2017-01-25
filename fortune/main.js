@@ -50,7 +50,7 @@ var lineGenerator = d3.line()
     .y(function(d){return scaleY(d.rank)})
     .curve(d3.curveCardinal.tension(0.5));
 var axisX = d3.axisBottom().tickPadding(10),
-    axisY = d3.axisLeft()
+    axisY = d3.axisLeft();
 var Byname,fortune,X,Y,updatedots,enterdots;
 
 
@@ -174,30 +174,33 @@ plot.selectAll('.new2016').transition().duration(1000).style('opacity',1)
 
 //draw profit
 function profit(data){
-const data2015=data.filter(d=>{return d.year==2015;})
-plot.selectAll('.dots').style('opacity',0);
+const data20152016=data.filter(d=>{return d.year==2015||d.year==2016;})
+// console.table(data20152016)
+// plot.selectAll('.dots').style('opacity',0);
 plot.selectAll('.greydots').style('opacity',0);
 plot.selectAll('.tick').style('opacity',0);
 plot.selectAll('.country').style('opacity',0);
-scaleProfit.domain(d3.extent(data2015,function(d){return d.profit}))
-scaleAsset.domain(d3.extent(data2015,function(d){return d.assets}))
-scaleEmployee.domain(d3.extent(data2015,function(d){return d.employee}))
+scaleProfit.domain(d3.extent(data20152016,function(d){return d.profit}))
+scaleAsset.domain(d3.extent(data20152016,function(d){return d.assets}))
+scaleEmployee.domain(d3.extent(data20152016,function(d){return d.employee}))
 
 axisX.scale(scaleAsset).ticks(5);
 axisY.scale(scaleProfit).ticks(5);
 
 X.call(axisX);
 Y.call(axisY); 
-var test=d3.extent(data2015,function(d){return d.employee})
-console.log(scaleEmployee(test[1]))
 
-var updateprofit=plot.selectAll('.y2015').style('opacity',1).data(data2015)
-    
+var updateprofit=plot.selectAll('.dots').data(data),
+
+enterprofit=updateprofit.enter();
+
+updateprofit.merge(enterprofit)
+    .style('opacity',function(d){if(d.year!=2016&&d.year!=2015){return 0;}else{return d.year==2016?1:0.3;}})
     .transition().duration(2000)
-    .attr('cx',function(d){return scaleAsset(d.assets)})
-    .attr('cy',function(d){return scaleProfit(d.profit)})
-    .attr('r',function(d){return scaleEmployee(d.employee)+'px'});
- 
+    .attr('cx',function(d){console.log(d.year==2016||d.year==2015?scaleAsset(d.assets):0);return (d.year==2016||d.year==2015)?scaleAsset(d.assets):w/2})
+    .attr('cy',function(d){return (d.year==2016||d.year==2015)?scaleProfit(d.profit):h/2})
+    .attr('r',function(d){console.log(d.year==2016||d.year==2015?scaleEmployee(d.employee):0);return (d.year==2016||d.year==2015)?(scaleEmployee(d.employee)+'px'):0});
+
  }
 function resetprofit(){
 axisX.scale(scaleX).tickSize(0);
@@ -210,7 +213,7 @@ plot.selectAll('.country').style('opacity',.5);
 console.log(updatedots)
 console.log(enterdots)
 updatedots.merge(enterdots)
-    .transition()
+    .transition().duration(1000)
     .attr('cx',function(d){return scaleX(d.year)})
     .attr('cy',function(d){return scaleY(d.rank)})
     .style('opacity',.5)
@@ -219,6 +222,9 @@ updatedots.merge(enterdots)
 }
 
 function parse(d){
+String.prototype.replaceAll = function(target, replacement) {
+  return this.split(target).join(replacement);
+};
 if(d['Location']==""||d['Location']==undefined)return;
 if(d['Year']==2008)return;
 
@@ -228,8 +234,8 @@ if(d['Year']==2008)return;
         prerank:+d['PreviousRank']?+d['PreviousRank']:undefined,
         name:d['Name'],
         location:d['Location'],
-        profit:+d['Profits'],
-        assets:+d['Assets'],
-        employee:+d['Employees'],
+        profit:d['Profits'].indexOf('(')?+(d['Profits'].replace('$','').replaceAll(',','')):-(+(d['Profits'].replace('(','').replace(')','').replace('$','').replaceAll(',',''))),
+        assets:+(d['Assets'].replace('$','').replaceAll(',','')),
+        employee:+(d['Employees'].replaceAll(',','')),
     }
 }
